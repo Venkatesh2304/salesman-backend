@@ -24,6 +24,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => { console.log('MongoDB connected'); })
   .catch(err => console.error(err));
 
+
 // Login route
 app.post('/login', async (req, res) => {
     const { user, password } = req.body;
@@ -67,6 +68,8 @@ app.post('/add-data', authenticateJWT, async (req, res) => { // Apply middleware
   });
 
 
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app; 
+
+// // Start server
+// const PORT = 3000 ;//process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
