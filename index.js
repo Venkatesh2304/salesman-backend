@@ -32,7 +32,6 @@ app.get('/', async (req, res) => {
 
 // Login route
 app.post('/login', async (req, res) => {
-    return res.status(200).json({ "a" :123213 });
 
     const { user, password } = req.body;
 
