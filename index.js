@@ -55,7 +55,7 @@ const seedUserData = async () => {
 };
 
 // Connect to MongoDB
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+const conn = mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => { 
     // seedOutstandingData();
     // seedUserData();
@@ -65,6 +65,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.get('/users', async (req, res) => {
   try {
+    await conn ;
     const users = await User.find({}, 'user'); // Fetch only the username field
     const usernames = users.map(user => user.user); // Extract usernames from user objects
     res.json(usernames); // Send the list of usernames as a response
