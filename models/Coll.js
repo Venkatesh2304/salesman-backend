@@ -13,6 +13,7 @@ const CollSchema = new mongoose.Schema({
     },
   ],
   user: { type: String, required: true },
+  time: { type: Date, default: Date.now }, // New field for storing the insertion time
 });
 
 module.exports = mongoose.model('Coll', CollSchema);
