@@ -69,8 +69,10 @@ mongoose.connect(MONGO_URI,  {
 
 app.get('/users', async (req, res) => {
   try {
+    console.log("users :",1)
     const users = await User.find({}, 'user'); // Fetch only the username field
     const usernames = users.map(user => user.user); // Extract usernames from user objects
+    console.log("users :",usernames)
     res.json(usernames); // Send the list of usernames as a response
   } catch (error) {
     console.error('Error fetching users:', error);
