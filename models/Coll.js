@@ -1,11 +1,18 @@
+
 const mongoose = require('mongoose');
 
 const CollSchema = new mongoose.Schema({
-    bill_no: { type: String, required: true },
-    amt: { type: Number, required: true },
-    type: { type: String, enum: ['cheque', 'neft'], required: true },
-    user : { type: String, required: true },
-    time : { type: Date, default: Date.now }, // Add this line
+  party: { type: String, required: true },
+  amount: { type: Number, required: true },
+  date: { type: Date, required: true },
+  type: { type: String, enum: ['cheque', 'neft'], required: true },
+  bills: [
+    {
+      bill_no : { type: String, required: true },
+      amount: { type: Number, required: true },
+    },
+  ],
+  user: { type: String, required: true },
 });
 
 module.exports = mongoose.model('Coll', CollSchema);
