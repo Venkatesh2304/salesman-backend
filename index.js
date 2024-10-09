@@ -7,7 +7,7 @@ require('dotenv').config();
 const authenticateJWT = require('./middleware/auth'); // Import the JWT middleware
 
 // Environment variables
-const MONGO_URI = process.env.MONGODB_URI;
+const MONGO_URI = process.env.MONGO_URI;
 const SECRET_KEY = process.env.SECRET_KEY;
 
 // Initialize app
