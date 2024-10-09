@@ -55,7 +55,11 @@ const seedUserData = async () => {
 };
 
 // Connect to MongoDB
-const conn = mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+const conn = mongoose.connect(MONGODB_URI,  {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex:true,
+})
   .then(() => { 
     // seedOutstandingData();
     // seedUserData();
