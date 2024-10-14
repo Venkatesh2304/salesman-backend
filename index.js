@@ -95,7 +95,7 @@ app.post('/login', async (req, res) => {
         }
 
         // Generate a token if needed (for example, if you use JWT)
-        const token = jwt.sign({ user: foundUser.user }, SECRET_KEY, { expiresIn: '1h' });
+        const token = jwt.sign({ user: foundUser.user }, SECRET_KEY, {}); //{ expiresIn: '1h' }
         return res.status(200).json({ token });
     } catch (error) {
         console.error('Login error:', error);
